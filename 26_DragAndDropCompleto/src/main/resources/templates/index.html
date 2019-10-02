@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security"
+	th:replace="layout/base::layout(~{::title},~{::style},~{::#contenido}, ~{::script})">
+<head>
+<title th:text="#{inicio}">Inicio</title>
+<style>
+.fav-btn {
+	display: block;
+	justify-content: left;
+	align-items: left;
+	margin-bottom: 20px;
+	padding: 3% 0% 0% 7%;
+}
+
+
+.favme {
+	display:block;
+	font-size: 1.5em;
+	width: auto;
+	height: auto;
+	cursor: pointer;
+	box-shadow: none;
+	transition: all .2s ease;
+	color: #CBCDCE;
+	margin: 0;
+	
+}
+
+.favme.active {
+	color: #DC3232;
+	transition: all .4s ease;
+}
+
+}
+</style>
+</head>
+<body>
+
+	<div class="container-fluid" id="contenido">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<h3 th:text="#{principal.categorias}">Categorías</h3>
+				<ul class="nav nav-sidebar">
+					<li th:each="categoria : ${categorias}"><a href="#"
+						th:href="@{/?(idCategoria=${categoria.id})}"
+						th:text="${categoria.nombre}">categoria</a></li>
+				</ul>
+			</div>
+
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h1>Openwebinars.net Shop</h1>
+				<div class="row">
+					<div class="col-sm-3" th:each="producto : ${productos}">
+
+						<div class="col-item">
+							<div class="row" sec:authorize="isAuthenticated()">
+								<div class="fav-btn">
+									<span class="favme glyphicon glyphicon-heart" th:data-id="${producto.id}"
+										th:classappend="${#sets.contains(favoritos, producto.id) ? 'active' : ''}">
+									</span>
+								</div>
+							</div>
+							<a href="#" th:href="@{/product/{id}(id=${producto.id})}">
+								<div class="photo"
+									th:classappend="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).SIN_STOCK)} ? 'sin-stock'">
+									<img src="http://placehold.it/350x260"
+										th:src="${#lists.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen[0]}"
+										class="img-responsive" alt="imagen"
+										th:title="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).SIN_STOCK)} ? #{producto.disponibilidad.SIN_STOCK} : ${producto.nombre}" />
+								</div>
+								<div class="info">
+									<div class="row">
+										<div class="price col-md-12">
+											<h5 th:text="${#strings.abbreviate(producto.nombre,65)}">Nombre</h5>
+											<div class="price-text-color">
+												<span
+													th:text="${#numbers.formatCurrency(producto.getPrecio())}">10</span>
+												<th:block th:if="${producto.pvp != producto.getPrecio()}">
+													<span class="price-original"
+														th:text="${#numbers.formatCurrency(producto.pvp)}"></span>
+													<span class="label label-danger"
+														th:text="${#numbers.formatPercent(1-(producto.getPrecio()/producto.pvp),1,0)}"></span>
+												</th:block>
+											</div>
+										</div>
+										<div class="row">
+											<div class="rating col-md-4">
+												<p>
+													<span
+														th:text="${#numbers.formatDecimal(producto.getPuntuacionMedia(),1,1)}">4</span>/5
+												</p>
+											</div>
+											<div class="rating col-md-8">
+												<span th:each="i:${#numbers.sequence(1,5)}"
+													class="glyphicon"
+													th:classappend="${i <= producto.getPuntuacionMedia()} ? 'glyphicon-star': 'glyphicon-star-empty'"></span>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</a>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+	<script src="../../../../target/classes/static/js/favs.js" th:src="@{/js/favs.js}"></script>
+
+</body>
+</html>

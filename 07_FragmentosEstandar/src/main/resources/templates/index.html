@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos/head::head}">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<nav th:replace="~{fragmentos/encabezado::encabezado}"></nav>
+	
+	<!-- Begin page content -->
+	<div class="container">
+		<div class="page-header">
+			<h1>Ejemplo de inclusión de fragmentos</h1>
+		</div>
+		<p class="lead">
+			En este ejemplo hacemos uso del dialecto estándar de Thymeleaf para construir
+			una página a través de la inclusión de fragmentos definidos en otras páginas.
+		</p>
+	</div>
+	
+	<footer th:replace="~{fragmentos/pie::pie}"></footer>
+	
+	<th:block th:replace=~{fragmentos/jsfinal::javascriptfinal}></th:block>
+</body>
+</html>

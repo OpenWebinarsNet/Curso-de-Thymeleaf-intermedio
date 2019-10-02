@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<th:block th:fragment="javascriptfinal">
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+			th:src="@{/webjars/jquery/jquery.min.js}"></script>
+		<!-- Include all compiled plugins (below), or include individual files as needed -->
+		<script
+			src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+			th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+	</th:block>
+</body>
+</html>

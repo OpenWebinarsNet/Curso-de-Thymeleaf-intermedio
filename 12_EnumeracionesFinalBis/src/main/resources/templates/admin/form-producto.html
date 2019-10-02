@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	th:replace="layout/base::layout(~{::title},~{},~{::#contenido},~{})">
+<head>
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Formulario de producto</title>
+<!--  -->
+</head>
+<body>
+
+	<div class="container" id="contenido">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<form method="post" action="#"
+					th:action="@{/admin/producto/nuevo/submit}" th:object="${producto}">
+					<h1>
+						<span th:text="${producto.id} ? 'Editar' : 'Nuevo'"></span>
+						producto
+					</h1>
+					<input type="hidden" th:field="*{id}" id="id" />
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('nombre')} ? 'has-error'">
+						<label class="control-label" for="nombre">Nombre</label> <input
+							type="text" class="form-control" id="nombre" placeholder="Nombre"
+							th:field="*{nombre}" /> <span
+							th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+							class="help-block" id="nombre-error">Errores</span>
+					</div>
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('imagen')} ? 'has-error'">
+						<label class="control-label" for="imagen">URL de la imagen</label>
+						<input type="url" class="form-control" id="imagen"
+							placeholder="http://..." th:field="*{imagen}"> <span
+							th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}"
+							class="help-block" id="imagen-error">Errores</span>
+
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="descripcion">Descripción</label>
+						<textarea class="form-control" id="descripcion"
+							placeholder="Descripción" rows="3" th:field="*{descripcion}"></textarea>
+					</div>
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('pvp')} ? 'has-error'">
+						<label class="control-label" for="pvp">PVP</label> <input
+							type="number" class="form-control" id="pvp" placeholder="1.0"
+							th:field="*{pvp}" /> <span th:if="${#fields.hasErrors('pvp')}"
+							th:errors="*{pvp}" class="help-block" id="pvp-error">Errores</span>
+
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="descuento">Descuento</label> <input
+							type="number" min="0" max="1" step="0.01" class="form-control"
+							id="descuento" placeholder="0.0" th:field="*{descuento}" />
+					</div>
+
+					<!-- Insertar aquí el desplegable de Disponibilidad -->
+					<div class="form-group">
+
+						<label class="control-label" for="disponibilidad">Disponibilidad</label>
+
+						<select th:field="*{disponibilidad}" class="form-control">
+
+							<option
+								th:each="disponibilidad : ${T(com.openwebinars.proyecto.modelo.Disponibilidad).values()}"
+								th:value="${disponibilidad}"
+								th:text="#{'producto.disponibilidad.'+${disponibilidad}}">Disponibilidad</option>
+
+						</select>
+
+					</div>
+
+
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('categoria')} ? 'has-error'">
+						<label class="control-label" for="categoria">Categoría</label> <select
+							th:field="*{categoria}" class="form-control">
+							<option value="-1">---</option>
+							<option th:each="categoria : ${categorias}"
+								th:value="${categoria.id}" th:text="${categoria.nombre}">Categoría</option>
+						</select> <span th:if="${#fields.hasErrors('categoria')}"
+							th:errors="*{categoria}" class="help-block" id="categoria-error">Errores</span>
+
+					</div>
+					<button type="submit" class="btn btn-default">Enviar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

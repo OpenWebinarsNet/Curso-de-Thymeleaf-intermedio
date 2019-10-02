@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	th:replace="layout/base::layout(~{::title},~{::style},~{::#contenido}, ~{::script})">
+<head>
+<title th:text="#{inicio}">Gestión de categorías</title>
+<style>
+body {
+	margin-top: 20px;
+}
+</style>
+</head>
+<body>
+	<th:block id="contenido">
+		<div id="paraelmodal"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-2 col-md-8">
+					<div class="alert alert-warning alert-dismissible" role="alert"
+						th:if="${param.error}">
+						<button type="button" class="close" data-dismiss="alert"
+							aria-label="Close">
+							<span aria-hidden="true">&times;</span>
+						</button>
+						<span>No se puede borrar una categoria que tiene asociados
+							productos</span>
+					</div>
+					<div class="pull-right">
+						<a href="form-categoria.html" th:href="@{/admin/categoria/nueva}"
+							class="btn btn-primary">Nueva categoría</a>
+
+					</div>
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Imagen</th>
+								<th>Nombre</th>
+								<th>Operaciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="categoria : ${categorias}">
+								<td><img
+									th:src="${not (#strings.isEmpty(categoria.imagen))} ? ${categoria.imagen} : 'http://placehold.it/48x48'"
+									class="img-responsive icono-categoria" alt="imagen" /></td>
+								<td th:text="${categoria.nombre}"></td>
+								<td class="operaciones"><a href="#"
+									th:href="@{/admin/categoria/editar/{id}(id=${categoria.id})}"
+									class="btn btn-primary">Editar</a>
+									<button type="button" class="btn btn-danger"
+										th:onclick="|javascript:open_delete(${categoria.id},'C')|">Borrar</button>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+	</th:block>
+	
+	<script src="../../static/js/app.js" th:src="@{/js/app.js}"></script>
+	
+
+</body>
+</html>

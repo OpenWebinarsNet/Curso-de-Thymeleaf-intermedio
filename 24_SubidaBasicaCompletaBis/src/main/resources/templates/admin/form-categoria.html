@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	th:replace="layout/base::layout(~{::title},~{},~{::#contenido}, ~{})">
+<head>
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Formulario de categoría</title>
+<!--  -->
+</head>
+<body>
+
+
+	<div class="container" id="contenido">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<form method="post" action="#"
+					th:action="@{/admin/categoria/nueva/submit}"
+					th:object="${categoria}">
+					<h1>
+						<span th:text="${categoria.id} ? 'Editar' : 'Nueva'"></span>
+						categoría
+					</h1>
+					<input type="hidden" th:field="*{id}" id="id" />
+					<div class="form-group">
+						<label class="control-label" for="nombre">Nombre</label> <input type="text"
+							class="form-control" id="nombre" placeholder="Nombre"
+							required="required" th:field="*{nombre}">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="imagen">URL de la imagen</label> <input type="url"
+							class="form-control" id="imagen" placeholder="http://..."
+							th:field="*{imagen}">
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="destacada"> <input type="checkbox"
+							id="destacada" value="true" th:field="*{destacada}"> Es
+							destacada
+						</label>
+					</div>
+					<button type="submit" class="btn btn-default">Enviar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos/head::head}">
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<nav th:replace="~{fragmentos/encabezado::encabezado}"></nav>
+	
+	<!-- Begin page content -->
+	<div class="container">
+		<div class="jumbotron">
+			<h1 th:text="${mensaje}">Mensaje</h1>
+		</div>
+	</div>
+	
+	<footer th:replace="~{fragmentos/pie::pie}"></footer>
+	
+	<th:block th:replace=~{fragmentos/jsfinal::javascriptfinal}></th:block>
+</body>
+</html>

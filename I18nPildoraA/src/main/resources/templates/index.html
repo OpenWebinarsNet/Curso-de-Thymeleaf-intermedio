@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1 th:text="#{titulo}">Saludo</h1>
+	<a href="#" th:href="@{''(lang=es_ES)}" th:text="#{lang.es}">Español</a>
+	<a href="#" th:href="@{''(lang=en_GB)}" th:text="#{lang.en}">Inglés</a>
+</body>
+</html>

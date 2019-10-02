@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	th:replace="layout/base::layout(~{::title},~{::style},~{::#contenido}, ~{::script})">
+<head>
+<title th:text="#{inicio}">Gestión de productos</title>
+<style>
+body {
+	margin-top: 20px;
+}
+</style>
+</head>
+<body>
+	<th:block id="contenido">
+		<div id="paraelmodal"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-1 col-md-10">
+					<div class="pull-right">
+						<a href="form-producto.html" th:href="@{/admin/producto/nuevo}"
+							class="btn btn-primary">Nuevo producto</a>
+
+					</div>
+
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Imagen</th>
+								<th>Nombre</th>
+								<th>Pvp</th>
+								<th>Operaciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="producto : ${productos}">
+								<td><img
+									th:src="${not (#strings.isEmpty(producto.imagen))} ? ${producto.imagen} : 'http://placehold.it/48x48'"
+									class="img-responsive icono-categoria" alt="imagen" /></td>
+								<td th:text="${producto.nombre}"></td>
+								<td th:text="${#numbers.formatCurrency(producto.pvp)}"></td>
+								<td class="operaciones"><a href="#"
+									th:href="@{/admin/producto/editar/{id}(id=${producto.id})}"
+									class="btn btn-primary">Editar</a> <!-- <button type="button" class="btn btn-danger"
+										data-toggle="modal" data-target="#delete-modal"
+										th:data-id="${producto.id}">Borrar</button></td>-->
+									<button type="button" class="btn btn-danger"
+										th:onclick="|javascript:open_delete(${producto.id}, 'P')|">Borrar</button>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+			<!-- Insertar el código aquí -->
+			<div class="row">
+
+				<div th:if="${productos.totalPages != 1}"
+					class="form-group col-md-11 pagination-centered">
+
+					<ul class="pagination">
+
+						<!-- Si el número de página es cero, deshabilitamos el enlace -->
+
+						<li th:class="${productos.number == 0} ? disabled">
+							<!-- Este enlace nos debe llevar a la primera página --> <a
+							class="pageLink" th:href="@{/admin/producto/(page=1)}">&laquo;</a>
+
+						</li>
+
+						<!-- Si el número de página es cero, deshabilitamos el enlace -->
+
+						<li th:class="${productos.number == 0} ? disabled">
+							<!-- Este enlace nos debe llevar a la página anterior --> <a
+							class="pageLink"
+							th:href="@{/admin/producto/(page=${productos.number})}">&larr;</a>
+
+						</li>
+
+						<!-- Este bucle genera los enlaces para las demás páginas -->
+
+						<li
+							th:class="${productos.number == (page-1)} ? 'active pointer-disabled'"
+							th:each="page : ${#numbers.sequence(1, productos.totalPages)}">
+
+							<a class="pageLink" th:href="@{/admin/producto/(page=${page})}"
+							th:text="${page}"></a>
+
+						</li>
+
+						<!-- Enlace a la siguiente página; si estamos en la última queda desabilitado  -->
+
+						<li
+							th:class="${productos.number == (productos.totalPages - 1)} ? disabled">
+
+							<a class="pageLink"
+							th:href="@{/admin/producto/(page=${productos.number + 2})}">&rarr;</a>
+
+						</li>
+
+						<!-- Enlace a la última página; si estamos en la última queda desabilitado  -->
+
+						<li
+							th:class="${productos.number == (productos.totalPages - 1)} ? disabled">
+
+							<a class="pageLink"
+							th:href="@{/admin/producto/(page=${productos.totalPages})}">&raquo;</a>
+
+						</li>
+
+					</ul>
+
+				</div>
+
+			</div>
+		</div>
+
+
+
+
+	</th:block>
+
+	<script src="../../static/js/app.js" th:src="@{/js/app.js}"></script>
+
+
+
+
+
+</body>
+</html>

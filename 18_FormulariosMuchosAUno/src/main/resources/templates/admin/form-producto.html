@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	th:replace="layout/base::layout(~{::title},~{},~{::#contenido}, ~{::script})">
+<head>
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Formulario de producto</title>
+<!--  -->
+</head>
+<body>
+
+	<div class="container" id="contenido">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<form method="post" action="#" id="form-producto"
+					th:action="@{/admin/producto/nuevo/submit}" th:object="${producto}">
+					<h1>
+						<span th:text="${producto.id} ? 'Editar' : 'Nuevo'"></span>
+						producto
+					</h1>
+					<input type="hidden" th:field="*{id}" id="id" />
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('nombre')} ? 'has-error'">
+						<label class="control-label" for="nombre">Nombre</label> <input
+							type="text" class="form-control" id="nombre" placeholder="Nombre"
+							th:field="*{nombre}" /> <span
+							th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+							class="help-block" id="nombre-error">Errores</span>
+					</div>
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('imagen')} ? 'has-error'">
+						<label class="control-label" for="imagen">URL de la imagen</label>
+						<input type="url" class="form-control" id="imagen"
+							placeholder="http://..." th:field="*{imagen}"> <span
+							th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}"
+							class="help-block" id="imagen-error">Errores</span>
+
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="descripcion">Descripción</label>
+						<textarea class="form-control" id="descripcion"
+							placeholder="Descripción" rows="3" th:field="*{descripcion}"></textarea>
+					</div>
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('pvp')} ? 'has-error'">
+						<label class="control-label" for="pvp">PVP</label> <input
+							type="number" class="form-control" id="pvp" placeholder="1.0"
+							th:field="*{pvp}" /> <span th:if="${#fields.hasErrors('pvp')}"
+							th:errors="*{pvp}" class="help-block" id="pvp-error">Errores</span>
+
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="descuento">Descuento</label> <input
+							type="number" min="0" max="1" step="0.01" class="form-control"
+							id="descuento" placeholder="0.0" th:field="*{descuento}" />
+					</div>
+					
+					<!-- 
+					
+							A PARTIR DE AQUÍ COMIENZAN LOS CAMBIOS 
+						=============================================
+						
+						- Modificamos el campo select de las categorías, 
+						para introducir un input con datalist, que puede darnos más juego
+						en caso de que tengamos un gran número de categorías
+						- Modificamos el campo select de la disponibilidad,
+						utilizando unos botones "toggle".
+						- Tenemos que añadir algo de código Javascript para gestionar todo. Para
+						que el código JS que usa jQuery se ejecute tras la carga de esta librería
+						hemos añadido un cuarto parámetro en la plantilla, que permite insertar 
+						contenido tras la carga de la misma. 
+					
+					
+					-->
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('categoria')} ? 'has-error'">
+						<label class="control-label" for="categoria-datalist">Categoría</label>
+						<!-- Si estamos editando, queremos tomar el valor de la categoría y dejarlo visible en este campo -->
+						<input type="text" id="categoria-datalist" th:value="${producto?.categoria?.nombre}"
+							class="form-control" list="categoria-list" />
+						<datalist id="categoria-list">
+							<option th:each="categoria : ${categorias}"
+								th:data-value="${categoria.id}" th:value="${categoria.nombre}"></option>
+						</datalist>
+						<!-- El campo que realmente va vinculado a nuestro command object es este -->
+						<input type="hidden" id="categoria" th:field="*{categoria}" /> <span
+							th:if="${#fields.hasErrors('categoria')}"
+							th:errors="*{categoria}" class="help-block" id="categoria-error">Errores</span>
+					</div>
+
+					<!-- Estos botones toggle funcionan con algo de ayuda de jQuery. Utilizamos lo que ya 
+					sabemos de internacionalización. -->
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('disponibilidad')} ? 'has-error'">
+						<div class="btn-group btn-toggle disponibilidad-toggle">
+							<button type="button" class="btn" 
+								th:classappend="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).DISPONIBLE) or producto.disponibilidad == null ? 'btn-primary active' : 'btn-default'}"
+								th:text="#{producto.disponibilidad.DISPONIBLE}">ON</button>
+							<button type="button" class="btn"  
+								th:classappend="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).SIN_STOCK) ? 'btn-primary active' : 'btn-default'}"
+								th:text="#{producto.disponibilidad.SIN_STOCK}">OFF</button>
+						</div>
+						<!-- El campo que realmente va vinculado a nuestro command object es este -->
+						<input type="hidden" name="disponibilidad" id="disponibilidad" th:value="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).SIN_STOCK) ? 'SIN_STOCK' : 'DISPONIBLE'}" /> 
+						<span
+							th:if="${#fields.hasErrors('disponibilidad')}"
+							th:errors="*{disponibilidad}" class="help-block"
+							id="categoria-error">Errores</span>
+					</div>
+
+					<button type="submit" class="btn btn-default">Enviar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="../../static/js/app.js" th:src="@{/js/app.js}"></script>
+
+</body>
+</html>

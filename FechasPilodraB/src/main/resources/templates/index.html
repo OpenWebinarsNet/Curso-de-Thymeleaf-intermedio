@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<p th:text="${persona.nombre}">Nombre</p>
+	<p th:text="${#temporals.format(persona.fecha, 'dd/MMM/yyyy')}">dd/mm/yyyy</p>
+</body>
+</html>

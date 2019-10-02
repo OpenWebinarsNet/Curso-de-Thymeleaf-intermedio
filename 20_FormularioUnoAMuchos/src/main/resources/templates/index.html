@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org" 
+		th:replace="layout/base::layout(~{::title},~{},~{::#contenido}, ~{})">
+<head>
+	<title th:text="#{inicio}">Inicio</title>
+</head>
+<body>
+
+	<div class="container-fluid" id="contenido">
+		<div class="row">
+			<div class="col-sm-3 col-md-2 sidebar">
+				<h3 th:text="#{principal.categorias}">Categorías</h3>
+				<ul class="nav nav-sidebar">
+					<li th:each="categoria : ${categorias}"><a href="#"
+						th:href="@{/?(idCategoria=${categoria.id})}"
+						th:text="${categoria.nombre}">categoria</a></li>
+				</ul>
+			</div>
+
+			<div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main">
+				<h1>Openwebinars.net Shop</h1>
+				<div class="row">
+					<div class="col-sm-3" th:each="producto : ${productos}"> 
+						
+						<a href="#" th:href="@{/product/{id}(id=${producto.id})}">
+							<div class="col-item">
+								<div class="photo" th:classappend="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).SIN_STOCK)} ? 'sin-stock'">
+									<img src="http://placehold.it/350x260"
+										th:src="${#strings.isEmpty(producto.imagen)} ? 'http://placehold.it/350x260' : ${producto.imagen}"
+										class="img-responsive" alt="imagen" th:title="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).SIN_STOCK)} ? #{producto.disponibilidad.SIN_STOCK} : ${producto.nombre}" />
+								</div>
+								<div class="info">
+									<div class="row">
+										<div class="price col-md-12">
+											<h5 th:text="${#strings.abbreviate(producto.nombre,65)}">Nombre</h5>
+											<div class="price-text-color">
+													<span th:text="${#numbers.formatCurrency(producto.getPrecio())}">10</span>
+												<th:block th:if="${producto.pvp != producto.getPrecio()}">
+													<span class="price-original"
+														th:text="${#numbers.formatCurrency(producto.pvp)}"></span>
+													<span class="label label-danger"
+														th:text="${#numbers.formatPercent(1-(producto.getPrecio()/producto.pvp),1,0)}"></span>
+												</th:block>
+											</div>
+										</div>
+										<div class="row">
+											<div class="rating col-md-4">
+												<p>
+													<span
+														th:text="${#numbers.formatDecimal(producto.getPuntuacionMedia(),1,1)}">4</span>/5
+												</p>
+											</div>
+											<div class="rating col-md-8">
+												<span th:each="i:${#numbers.sequence(1,5)}"
+													class="glyphicon" th:classappend="${i <= producto.getPuntuacionMedia()} ? 'glyphicon-star': 'glyphicon-star-empty'"></span>
+											</div>
+										</div>
+
+									</div>
+								</div>
+							</div>
+						</a>
+					</div>
+				</div>
+
+			</div>
+		</div>
+
+	</div>
+
+
+	
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/base}">
+<head>
+<meta charset="UTF-8">
+<title>Titulo</title>
+</head>
+<body>
+	<div class="row" layout:fragment="contenido">
+		<div class="col-sm-3 col-md-2 sidebar">
+			<h3>Menú</h3>
+			<ul class="nav nav-sidebar">
+				<li><a href="#">Opción 1</a></li>
+				<li><a href="#">Opción 2</a></li>
+				<li><a href="#">Opción 3</a></li>
+				<li><a href="#">Opción 4</a></li>
+			</ul>
+		</div>
+
+		<div class="col-sm-9 col-md-10">
+			<div layout:fragment="contenido-sin-menu">
+			
+			</div>
+		</div>
+
+
+	</div>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{layout/menu-lateral}">
+<head>
+<meta charset="UTF-8">
+<title>Inicio</title>
+</head>
+<body>
+	<div layout:fragment="contenido-sin-menu">
+		<div class="jumbotron">
+			<h1 th:text="${mensaje}">Mensaje</h1>
+		</div>
+	</div>
+</body>
+</html>

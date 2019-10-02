@@ -1,0 +1,883 @@
+!SESSION 2019-09-02 19:28:59.634 -----------------------------------------------
+eclipse.buildId=4.3.2.201908130627-RELEASE
+java.version=1.8.0_201
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_ES
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -data /home/luismi/Documentos/repos/Openwebinars/thymeleaf-avanzado/00_ProyectoInicial -os linux -ws gtk -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.datatools.sqltools.db.derby 4 0 2019-09-02 19:29:00.626
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.db.derby [1731]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core [1737]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.result [1740]
+                No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.db.generic [1733]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.routineeditor
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.routineeditor; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.routineeditor [1741]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.db.derby.ui 4 0 2019-09-02 19:29:00.653
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.db.derby.ui [1732]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.derby
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.derby; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.db.derby [1731]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.editor.core [1737]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+                     org.eclipse.datatools.sqltools.result [1740]
+                       No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.db.generic [1733]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.routineeditor
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.routineeditor; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.routineeditor [1741]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core.ui [1738]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic.ui
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.db.generic.ui [1734]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.sqleditor
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.sqleditor; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.sqleditor [1744]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result; visibility:="reexport"
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.db.generic 4 0 2019-09-02 19:29:00.692
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.db.generic [1733]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core [1737]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.result [1740]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.db.generic.ui 4 0 2019-09-02 19:29:00.744
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.db.generic.ui [1734]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core.ui [1738]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.editor.core [1737]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+                     org.eclipse.datatools.sqltools.result [1740]
+                       No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.sqleditor
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.sqleditor; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.sqleditor [1744]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.db.generic [1733]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.editor.core 4 0 2019-09-02 19:29:00.760
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.editor.core [1737]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.result [1740]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.editor.core.ui 4 0 2019-09-02 19:29:00.789
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.editor.core.ui [1738]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core [1737]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.result [1740]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.result 4 0 2019-09-02 19:29:00.795
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.result [1740]
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.routineeditor 4 0 2019-09-02 19:29:00.812
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.routineeditor [1741]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.result [1740]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core [1737]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.sqleditor 4 0 2019-09-02 19:29:00.841
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.sqleditor [1744]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core.ui [1738]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.editor.core [1737]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+                     org.eclipse.datatools.sqltools.result [1740]
+                       No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.ui 2 0 2019-09-02 19:29:03.957
+!MESSAGE Warnings while parsing the images from the 'org.eclipse.ui.commandImages' extension point.
+!SUBENTRY 1 org.eclipse.ui 2 0 2019-09-02 19:29:03.957
+!MESSAGE Cannot bind to an undefined command: plug-in='com.genuitec.eclipse.theming.ui', id='com.genuitec.myeclipse.help.darktheme.commandid'
+
+!ENTRY org.eclipse.egit.core 1 0 2019-09-02 19:29:04.263
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2019-09-02 19:29:04.999
+!MESSAGE A DevStyle Theme is being activated on this workspace; preparing colors and configuration
+
+!ENTRY com.genuitec.eclipse.theming.ui 1 0 2019-09-02 19:29:05.012
+!MESSAGE DevStyle has archived current color configurations to alternate preferences - will be restored when switching out of the DevStyle Theme
+
+!ENTRY org.eclipse.jface 2 0 2019-09-02 19:29:05.796
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-02 19:29:05.796
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7fb9a83c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@517d9cd5,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui 2 2 2019-09-02 19:29:46.201
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)
+!SESSION 2019-09-02 21:07:19.514 -----------------------------------------------
+eclipse.buildId=4.3.2.201908130627-RELEASE
+java.version=1.8.0_201
+java.vendor=Oracle Corporation
+BootLoader constants: OS=linux, ARCH=x86_64, WS=gtk, NL=es_ES
+Framework arguments:  -product org.springframework.boot.ide.branding.sts4
+Command-line arguments:  -data /home/luismi/Documentos/repos/Openwebinars/thymeleaf-avanzado/00_ProyectoInicial -os linux -ws gtk -arch x86_64 -product org.springframework.boot.ide.branding.sts4
+
+!ENTRY org.eclipse.datatools.sqltools.db.derby 4 0 2019-09-02 21:07:20.224
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.db.derby [1731]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.routineeditor
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.routineeditor; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.routineeditor [1741]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.result [1740]
+                No resolution report for the bundle.         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.editor.core [1737]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.db.generic [1733]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.db.derby.ui 4 0 2019-09-02 21:07:20.248
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.db.derby.ui [1732]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.derby
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.derby; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.db.derby [1731]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.routineeditor
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.routineeditor; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.routineeditor [1741]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+                     org.eclipse.datatools.sqltools.result [1740]
+                       No resolution report for the bundle.                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+                     org.eclipse.datatools.sqltools.editor.core [1737]
+                       Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+                         -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.db.generic [1733]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core.ui [1738]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic.ui
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.db.generic.ui [1734]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic; bundle-version="1.2.101.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.sqleditor
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.sqleditor; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.sqleditor [1744]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result; visibility:="reexport"
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.db.generic 4 0 2019-09-02 21:07:20.279
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.db.generic [1733]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core [1737]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.result [1740]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.db.generic.ui 4 0 2019-09-02 21:07:20.304
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.db.generic.ui [1734]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.db.generic
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.db.generic; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.db.generic [1733]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.editor.core [1737]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+                     org.eclipse.datatools.sqltools.result [1740]
+                       No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.sqleditor
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.sqleditor; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.sqleditor [1744]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.editor.core.ui [1738]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result; visibility:="reexport"
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.editor.core 4 0 2019-09-02 21:07:20.314
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.editor.core [1737]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.result [1740]
+         No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.editor.core.ui 4 0 2019-09-02 21:07:20.332
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.editor.core.ui [1738]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core [1737]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.result [1740]
+                No resolution report for the bundle.  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.result 4 0 2019-09-02 21:07:20.339
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.result [1740]
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.routineeditor 4 0 2019-09-02 21:07:20.348
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.routineeditor [1741]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.result [1740]
+         No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core [1737]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.datatools.sqltools.sqleditor 4 0 2019-09-02 21:07:20.369
+!MESSAGE FrameworkEvent ERROR
+!STACK 0
+org.osgi.framework.BundleException: Could not resolve module: org.eclipse.datatools.sqltools.sqleditor [1744]
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core.ui
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core.ui; bundle-version="1.2.101.201811012051"; singleton:="true"
+       org.eclipse.datatools.sqltools.editor.core.ui [1738]
+         Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+           -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+              org.eclipse.datatools.sqltools.editor.core [1737]
+                Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result
+                  -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+                     org.eclipse.datatools.sqltools.result [1740]
+                       No resolution report for the bundle.  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.result; visibility:="reexport"
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.result; bundle-version="1.3.201.201811012051"; singleton:="true"
+  Unresolved requirement: Require-Bundle: org.eclipse.datatools.sqltools.editor.core
+    -> Bundle-SymbolicName: org.eclipse.datatools.sqltools.editor.core; bundle-version="1.2.101.201811012051"; singleton:="true"
+  Bundle was not resolved because of a uses constraint violation.
+  org.apache.felix.resolver.reason.ReasonException: Uses constraint violation. Unable to resolve resource org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"] because it is exposed to package 'org.apache.lucene.analysis' from resources org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"] and org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"] via two dependency chains.
+
+Chain 1:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.core)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.core
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="8.0.0.v20190404-1858"; osgi.identity="org.apache.lucene.core"]
+
+Chain 2:
+  org.eclipse.datatools.sqltools.result [osgi.identity; type="osgi.bundle"; version:Version="1.3.201.201811012051"; osgi.identity="org.eclipse.datatools.sqltools.result"; singleton:="true"]
+    require: (&(osgi.wiring.bundle=org.apache.lucene.misc)(bundle-version>=7.5.0))
+     |
+    provide: osgi.wiring.bundle: org.apache.lucene.misc
+  org.apache.lucene.core [osgi.identity; type="osgi.bundle"; version:Version="7.5.0.v20181003-1532"; osgi.identity="org.apache.lucene.core"]
+	at org.eclipse.osgi.container.Module.start(Module.java:457)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel$1.run(ModuleContainer.java:1820)
+	at org.eclipse.osgi.internal.framework.EquinoxContainerAdaptor$2$1.execute(EquinoxContainerAdaptor.java:150)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1813)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.incStartLevel(ModuleContainer.java:1769)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.doContainerStartLevel(ModuleContainer.java:1735)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1661)
+	at org.eclipse.osgi.container.ModuleContainer$ContainerStartLevel.dispatchEvent(ModuleContainer.java:1)
+	at org.eclipse.osgi.framework.eventmgr.EventManager.dispatchEvent(EventManager.java:234)
+	at org.eclipse.osgi.framework.eventmgr.EventManager$EventThread.run(EventManager.java:345)
+
+!ENTRY org.eclipse.egit.core 1 0 2019-09-02 21:07:23.473
+!MESSAGE Using Apache MINA sshd as ssh client.
+
+!ENTRY org.eclipse.jface 2 0 2019-09-02 21:07:24.585
+!MESSAGE Keybinding conflicts occurred.  They may interfere with normal accelerator operation.
+!SUBENTRY 1 org.eclipse.jface 2 0 2019-09-02 21:07:24.585
+!MESSAGE A conflict occurred for CTRL+SHIFT+T:
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.jdt.ui.navigate.open.type,Open Type,
+		Open a type in a Java editor,
+		Category(org.eclipse.ui.category.navigate,Navigate,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@71a7cf7c,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+Binding(CTRL+SHIFT+T,
+	ParameterizedCommand(Command(org.eclipse.lsp4e.symbolinworkspace,Go to Symbol in Workspace,
+		,
+		Category(org.eclipse.lsp4e.category,Language Servers,null,true),
+		org.eclipse.ui.internal.WorkbenchHandlerServiceHandler@7f49df25,
+		,,true),null),
+	org.eclipse.ui.defaultAcceleratorConfiguration,
+	org.eclipse.ui.contexts.window,,,system)
+
+!ENTRY org.eclipse.ui 2 2 2019-09-02 21:07:38.412
+!MESSAGE Invalid property category path: org.springframework.ide.eclipse.beans.ui.properties.ProjectPropertyPage (bundle: org.springframework.ide.eclipse.xml.namespaces, propertyPage: org.springframework.ide.eclipse.beans.ui.namespaces.projectPropertyPage)

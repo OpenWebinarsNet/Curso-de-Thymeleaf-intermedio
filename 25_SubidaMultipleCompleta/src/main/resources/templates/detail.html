@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	th:replace="layout/base::layout(~{::title},~{},~{::#contenido}, ~{})">
+<head>
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title th:text="${producto.nombre}"></title>
+<!--  -->
+</head>
+<body>
+
+	<div class="container" id="contenido">
+		<div class="row">
+			<div class="col-md-4">
+				<img src="http://placehold.it/400x400"
+					th:if="${#lists.isEmpty(producto.imagen)}" />
+
+				<div id="myCarousel" class="carousel slide" data-ride="carousel" th:unless="${#lists.isEmpty(producto.imagen)}">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" th:each="img, stat: ${producto.imagen}" 
+							th:data-slide-to="${stat.index}" th:appendclass="${stat.first ? 'active' : ''}"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner">
+						<div class="item" th:each="img, stat: ${producto.imagen}" th:classappend="${stat.first ? 'active' : ''}">
+							<img src="#" th:src="@{${img}}"  />
+						</div>
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel"
+						data-slide="prev"> <span
+						class="glyphicon glyphicon-chevron-left"></span> <span
+						class="sr-only">Previous</span>
+					</a> <a class="right carousel-control" href="#myCarousel"
+						data-slide="next"> <span
+						class="glyphicon glyphicon-chevron-right"></span> <span
+						class="sr-only">Next</span>
+					</a>
+				</div>
+
+
+
+			</div>
+			<div class="col-md-8">
+				<h1 class="product-name" th:text=${producto.nombre}>Nombre del
+					producto</h1>
+				<div class="product-price">
+					<div class="row">
+						<!-- <div class=col-md-4>
+							<span class="pvp"
+								th:text="${producto.descuento == 0} ? ${#numbers.formatCurrency(producto.pvp)} : ${#numbers.formatCurrency(producto.pvp * (1 - producto.descuento))}">100€</span>
+						</div>
+						<th:block th:if="${producto.descuento > 0}">
+							<div class="col-md-3 pvp-no-discounted">
+								<span th:text="${#numbers.formatCurrency(producto.pvp)}">120€</span>
+							</div>
+							<div class="col-md-3 discount">
+								<span class="label-discount">Descuento </span> <span
+									class="label label-danger"
+									th:text=${#numbers.formatPercent(producto.descuento,1,0)}>12%</span>
+							</div>
+						</th:block>-->
+					</div>
+				</div>
+				<div class="row">
+					<div class="detail-rating col-md-4">
+						<span th:each="i:${#numbers.sequence(1,5)}" class="glyphicon"
+							th:classappend="${i <= producto.getPuntuacionMedia()} ? 'glyphicon-star': 'glyphicon-star-empty'"></span>
+					</div>
+
+					<div class="detail-rating col-md-4">
+						<p>
+							<span
+								th:text="${#numbers.formatDecimal(producto.getPuntuacionMedia(),1,1)}">4</span>/5
+						</p>
+					</div>
+				</div>
+				<div class="row"
+					th:if="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).SIN_STOCK)}">
+					<div class="col-md-4">
+						<span class="label label-warning"
+							th:text="#{producto.disponibilidad.SIN_STOCK}"></span>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-12">
+				<h3>Características</h3>
+				<p th:text="${producto.descripcion}">Descripción</p>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-md-6">
+				<h3>Puntuaciones</h3>
+				<div th:each="puntuacion : ${producto.puntuaciones}">
+					<span th:each="i:${#numbers.sequence(1,5)}" class="glyphicon"
+						th:classappend="${i <= puntuacion.puntuacion} ? 'glyphicon-star': 'glyphicon-star-empty'"></span>
+					<span
+						th:text="${#temporals.format(puntuacion.fecha, 'dd/MMM/yyyy HH:mm')}">01/01/2000
+						00:00</span>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+</body>
+</html>

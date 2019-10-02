@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	th:replace="layout/base::layout(~{::title},~{::style},~{::#contenido}, ~{::script})">
+<head>
+<title th:text="#{inicio}">Gestión de productos</title>
+<style>
+body {
+	margin-top: 20px;
+}
+</style>
+</head>
+<body>
+	<th:block id="contenido">
+		<div id="paraelmodal"></div>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-1 col-md-10">
+					<div class="pull-right">
+						<a href="form-producto.html" th:href="@{/admin/producto/nuevo}"
+							class="btn btn-primary">Nuevo producto</a>
+
+					</div>
+
+					<table class="table">
+						<thead>
+							<tr>
+								<th>Imagen</th>
+								<th>Nombre</th>
+								<th>Pvp</th>
+								<th>Operaciones</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr th:each="producto : ${productos}">
+								<td><img
+									th:src="${not (#strings.isEmpty(producto.imagen))} ? ${producto.imagen} : 'http://placehold.it/48x48'"
+									class="img-responsive icono-categoria" alt="imagen" /></td>
+								<td th:text="${producto.nombre}"></td>
+								<td th:text="${#numbers.formatCurrency(producto.pvp)}"></td>
+								<td class="operaciones"><a href="#"
+									th:href="@{/admin/producto/editar/{id}(id=${producto.id})}"
+									class="btn btn-primary">Editar</a> <!-- <button type="button" class="btn btn-danger"
+										data-toggle="modal" data-target="#delete-modal"
+										th:data-id="${producto.id}">Borrar</button></td>-->
+									<button type="button" class="btn btn-danger"
+										th:onclick="|javascript:open_delete(${producto.id}, 'P')|">Borrar</button>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</div>
+
+
+
+
+	</th:block>
+
+	<script src="../../static/js/app.js" th:src="@{/js/app.js}"></script>
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org"
+	th:replace="layout/base::layout(~{::title},~{},~{::#contenido}, ~{::script})">
+<head>
+<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+<title>Formulario de producto</title>
+<!--  -->
+</head>
+<body>
+
+	<div class="container" id="contenido">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<form method="post" action="#" id="form-producto"
+					th:action="@{/admin/producto/nuevo/submit}" th:object="${producto}">
+					<h1>
+						<span th:text="${producto.id} ? 'Editar' : 'Nuevo'"></span>
+						producto
+					</h1>
+					<input type="hidden" th:field="*{id}" id="id" />
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('nombre')} ? 'has-error'">
+						<label class="control-label" for="nombre">Nombre</label> <input
+							type="text" class="form-control" id="nombre" placeholder="Nombre"
+							th:field="*{nombre}" /> <span
+							th:if="${#fields.hasErrors('nombre')}" th:errors="*{nombre}"
+							class="help-block" id="nombre-error">Errores</span>
+					</div>
+					<!-- Eliminar este control, y añadir uno de tipo file -->
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('imagen')} ? 'has-error'">
+						<label class="control-label" for="imagen">URL de la imagen</label>
+						<input type="url" class="form-control" id="imagen"
+							placeholder="http://..." th:field="*{imagen}"> <span
+							th:if="${#fields.hasErrors('imagen')}" th:errors="*{imagen}"
+							class="help-block" id="imagen-error">Errores</span>
+
+					</div>
+					<div class="form-group">
+						<label class="control-label" for="descripcion">Descripción</label>
+						<textarea class="form-control" id="descripcion"
+							placeholder="Descripción" rows="3" th:field="*{descripcion}"></textarea>
+					</div>
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('pvp')} ? 'has-error'">
+						<label class="control-label" for="pvp">PVP</label> <input
+							type="number" class="form-control" id="pvp" placeholder="1.0"
+							th:field="*{pvp}" /> <span th:if="${#fields.hasErrors('pvp')}"
+							th:errors="*{pvp}" class="help-block" id="pvp-error">Errores</span>
+
+					</div>
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('categoria')} ? 'has-error'">
+						<label class="control-label" for="categoria-datalist">Categoría</label>
+						<!-- Si estamos editando, queremos tomar el valor de la categoría y dejarlo visible en este campo -->
+						<input type="text" id="categoria-datalist"
+							th:value="${producto?.categoria?.nombre}" class="form-control"
+							list="categoria-list" />
+						<datalist id="categoria-list">
+							<option th:each="categoria : ${categorias}"
+								th:data-value="${categoria.id}" th:value="${categoria.nombre}"></option>
+						</datalist>
+						<!-- El campo que realmente va vinculado a nuestro command object es este -->
+						<input type="hidden" id="categoria" th:field="*{categoria}" /> <span
+							th:if="${#fields.hasErrors('categoria')}"
+							th:errors="*{categoria}" class="help-block" id="categoria-error">Errores</span>
+					</div>
+
+					<!-- Estos botones toggle funcionan con algo de ayuda de jQuery. Utilizamos lo que ya 
+					sabemos de internacionalización. -->
+					<div class="form-group"
+						th:classappend="${#fields.hasErrors('disponibilidad')} ? 'has-error'">
+						<label style="display: block;">Disponibilidad</label>
+						<div class="btn-group btn-toggle disponibilidad-toggle">
+							<button type="button" class="btn"
+								th:classappend="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).DISPONIBLE) or producto.disponibilidad == null ? 'btn-primary active' : 'btn-default'}"
+								th:text="#{producto.disponibilidad.DISPONIBLE}">ON</button>
+							<button type="button" class="btn"
+								th:classappend="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).SIN_STOCK) ? 'btn-primary active' : 'btn-default'}"
+								th:text="#{producto.disponibilidad.SIN_STOCK}">OFF</button>
+
+						</div>
+						<!-- El campo que realmente va vinculado a nuestro command object es este -->
+						<input type="hidden" name="disponibilidad" id="disponibilidad"
+							th:value="${(producto.disponibilidad == T(com.openwebinars.proyecto.modelo.Disponibilidad).SIN_STOCK) ? 'SIN_STOCK' : 'DISPONIBLE'}" />
+						<span th:if="${#fields.hasErrors('disponibilidad')}"
+							th:errors="*{disponibilidad}" class="help-block"
+							id="categoria-error">Errores</span>
+					</div>
+					<div class="row">
+						<div class="pull-right">
+							<button type="button" class="btn btn-primary" name="addItem">Añadir
+								oferta</button>
+						</div>
+					</div>
+					<div class="form-group" style="margin-top: 10px;">
+						<fieldset id="ofertas">
+							<div th:each="fila,stat : ${producto.ofertas}">
+								<div class="panel panel-default">
+									<div class="panel-heading">
+										Oferta nº <span th:text="${stat.count}"></span>
+										<button type="button" class="close" aria-label="Close"
+											name="eliminarOferta" th:value="${stat.index}"
+											th:onclick="|javascript:remove_element(${stat.index})|">
+											<span aria-hidden="true">×</span>
+										</button>
+
+									</div>
+									<div class="panel-body">
+										<div class="row">
+											<input type="hidden"
+												th:field="${producto.ofertas[__${stat.index}__].producto.id}" />
+											<div class="col-md-10">
+												<label th:for="|ofertas__${stat.index}__.nombre|">Nombre</label>
+												<input class="form-control"
+													th:field="${producto.ofertas[__${stat.index}__].nombre}" />
+											</div>
+											<div class="col-md-2">
+												<label th:for="|ofertas__${stat.index}__.nuevoPvp|">Precio</label>
+												<input class="form-control"
+													th:field="${producto.ofertas[__${stat.index}__].nuevoPvp}"
+													type="number" />
+
+											</div>
+
+										</div>
+										<div class="row" style="margin-top: 10px;">
+											<div class="col-md-4">
+												<label th:for="|ofertas__${stat.index}__.fechaInicio|">Fecha
+													Inicio</label> <input class="form-control"
+													th:field="${producto.ofertas[__${stat.index}__].fechaInicio}"
+													type="datetime-local" />
+
+											</div>
+											<div class="col-md-4">
+												<label th:for="|ofertas__${stat.index}__.fechaFin|">Fecha
+													fin</label> <input class="form-control"
+													th:field="${producto.ofertas[__${stat.index}__].fechaFin}"
+													type="datetime-local" />
+											</div>
+
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</fieldset>
+					</div>
+
+					<button type="submit" class="btn btn-default">Enviar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+
+
+	<script src="../../static/js/app.js" th:src="@{/js/app.js}"></script>
+
+</body>
+</html>
